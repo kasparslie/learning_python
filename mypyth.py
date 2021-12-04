@@ -42,3 +42,42 @@ hrs = input("Enter Hours:")
 rte = input("Enter Rate")
 p = computepay(float(hrs), float(rte))
 print("Pay", p)
+
+zork = 0
+for thing in [9, 41, 12, 3, 74, 15] :
+    zork = zork + thing
+print('After', zork)
+
+smallest_so_far = -1
+for the_num in [9, 41, 12, 3, 74, 15] :
+   if the_num < smallest_so_far :
+      smallest_so_far = the_num
+print(smallest_so_far)
+
+
+largest = None
+smallest = None
+while True:
+    inp = input("Enter a number: ")
+    if inp == "done":
+        break
+    # print(inp)
+    try:
+        num=int(inp)
+       
+        if largest is None:
+            largest=num
+        elif largest<num:
+            largest=num
+        if smallest is None:
+            smallest=num
+        elif smallest>num:
+            smallest=num
+    except:
+        print("Invalid input, please try again")
+        continue
+
+
+print("Maximum is", largest)
+print("Minimum is", smallest)
+
