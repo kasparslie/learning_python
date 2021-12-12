@@ -62,3 +62,36 @@ for line in fh:
 
 print("There were", icount, "lines in the file with From as the first word")
 
+stuff = dict()
+print(stuff['candy'])
+
+stuff = dict()
+print(stuff.get('candy',-1))
+
+
+# Python Dictionaries and Files
+
+name = input("Enter file:")
+if len(name) < 1:
+    name = "mbox-short.txt"
+handle = open(name)
+senders = dict()
+newList = list()
+for line in handle:
+    if not line.startswith('From '):continue
+    line = line.split()
+    newList.append(line[1])
+# print(newList)
+
+for email in newList:
+    senders[email] = senders.get(email,0) +1
+# print(senders)
+
+statWord = None
+statCount= None
+for word,count in senders.items():
+    if statWord is None or count > statCount:
+        statCount = count
+        statWord  = word
+
+print(statWord, statCount)
